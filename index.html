@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO básico -->
+  <title>Cottar Arquitetura | Escritório de Arquitetura e Interiores em São Paulo</title>
+  <meta name="description" content="Cottar Arquitetura é um escritório de arquitetura autoral especializado em projetos residenciais, comerciais e de interiores em São Paulo. Conheça nosso portfólio." />
+  <meta name="keywords" content="arquitetura, escritório de arquitetura, projeto residencial, projeto comercial, interiores, são paulo" />
+  <meta name="author" content="Cottar Arquitetura" />
+  <link rel="canonical" href="https://www.cottararquitetura.com.br/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cottar Arquitetura | Arquitetura autoral, projetos atemporais" />
+  <meta property="og:description" content="Escritório de arquitetura e interiores em São Paulo. Projetos residenciais, comerciais e de interiores." />
+  <meta property="og:image" content="https://picsum.photos/id/1073/1200/630" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Favicon simples (placeholder) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232B2B2B'/%3E%3Ctext x='50' y='68' font-size='60' fill='%23E8E2D5' text-anchor='middle' font-family='Georgia,serif'%3EC%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ==================================================================
+       HEADER / NAVEGAÇÃO FIXA
+  =================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+      <a href="#home" class="logo" aria-label="Cottar Arquitetura - página inicial">
+        COTTAR <span>ARQUITETURA</span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="nav" id="primary-nav">
+        <ul class="nav__list">
+          <li><a href="#home" class="nav__link">Home</a></li>
+          <li><a href="#sobre" class="nav__link">O Arquiteto</a></li>
+          <li><a href="#portfolio" class="nav__link">Portfólio</a></li>
+          <li><a href="#contato" class="nav__link">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================================================================
+         HOME / HERO
+    =================================================================== -->
+    <section id="home" class="hero">
+      <div class="hero__media">
+        <video
+          id="hero-video"
+          class="hero__img"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster=""
+          aria-label="">
+          <source id="hero-video-source" src="" type="video/mp4" />
+        </video>
+        <div class="hero__overlay"></div>
+      </div>
+
+      <div class="hero__content container reveal">
+        <h1 id="hero-title" class="hero__title"></h1>
+        <p id="hero-slogan" class="hero__slogan"></p>
+        <a id="hero-cta" href="#portfolio" class="btn btn--outline-light"></a>
+      </div>
+
+      <a href="#sobre" class="hero__scroll" aria-label="Rolar para a próxima seção">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ==================================================================
+         SOBRE / O ARQUITETO
+    =================================================================== -->
+    <section id="sobre" class="about">
+      <div class="container about__grid">
+        <div class="about__media reveal">
+          <img id="about-photo" src="" alt="" loading="lazy" />
+        </div>
+
+        <div class="about__content reveal">
+          <p class="eyebrow" id="about-kicker"></p>
+          <h2 class="section-title" id="about-name"></h2>
+
+          <div id="about-bio" class="about__bio"></div>
+
+          <blockquote class="about__philosophy" id="about-philosophy"></blockquote>
+
+          <ul class="about__values" id="about-values"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         PORTFÓLIO
+    =================================================================== -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Portfólio</p>
+          <h2 class="section-title">Projetos selecionados</h2>
+          <p class="section-subtitle">
+            Uma seleção de projetos residenciais, comerciais e de interiores desenvolvidos
+            pelo escritório, unindo funcionalidade, estética e contexto.
+          </p>
+        </div>
+
+        <div class="filters reveal" id="portfolio-filters" role="tablist" aria-label="Filtrar projetos por categoria"></div>
+
+        <div class="portfolio__grid" id="portfolio-grid"></div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         CONTATO
+    =================================================================== -->
+    <section id="contato" class="contact">
+      <div class="container contact__grid">
+        <div class="contact__info reveal">
+          <p class="eyebrow">Contato</p>
+          <h2 class="section-title">Vamos conversar sobre o seu projeto</h2>
+          <p class="section-subtitle contact__subtitle">
+            Preencha o formulário ou utilize um dos canais abaixo. Retornamos em até 2 dias úteis.
+          </p>
+
+          <ul class="contact__list" id="contact-list"></ul>
+
+          <div class="contact__map">
+            <iframe
+              id="contact-map"
+              src=""
+              width="100%"
+              height="280"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Localização do escritório Cottar Arquitetura no mapa">
+            </iframe>
+          </div>
+        </div>
+
+        <form class="contact__form reveal" id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" required autocomplete="name" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required autocomplete="email" />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--dark">Enviar mensagem</button>
+
+          <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================================================================
+       MODAL DE DETALHE DO PROJETO
+  =================================================================== -->
+  <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal__backdrop" id="modal-backdrop"></div>
+    <div class="modal__panel">
+      <button class="modal__close" id="modal-close" aria-label="Fechar detalhes do projeto">&times;</button>
+
+      <div class="modal__body" id="modal-body">
+        <!-- Preenchido dinamicamente via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================================
+       FOOTER
+  =================================================================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <a href="#home" class="logo logo--footer">COTTAR <span>ARQUITETURA</span></a>
+        <p id="footer-tagline"></p>
+      </div>
+
+      <nav class="site-footer__nav" aria-label="Links rápidos">
+        <a href="#home">Home</a>
+        <a href="#sobre">O Arquiteto</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="site-footer__social" id="footer-social"></div>
+    </div>
+
+    <div class="container site-footer__bottom">
+      <p id="footer-copy"></p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

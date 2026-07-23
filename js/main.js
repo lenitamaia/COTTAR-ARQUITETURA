@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollReveal();
   initContactForm();
   initModal();
+  initLightbox();
 });
 
 /* --------------------------------------------------------------------
@@ -168,17 +169,21 @@ function openProjectModal(projectId) {
   const modal = document.getElementById("project-modal");
   const body = document.getElementById("modal-body");
 
+  // Galeria e plantas compartilham um único índice para o lightbox navegar
+  // entre todas as imagens do projeto, na mesma ordem em que aparecem.
+  const lightboxImages = [...project.gallery, ...project.floorPlans];
+
   const galleryHTML = project.gallery
     .map(
       (src, i) =>
-        `<img src="${src}" alt="Foto ${i + 1} do projeto ${escapeHTML(project.name)}" loading="lazy" />`
+        `<img src="${src}" alt="Foto ${i + 1} do projeto ${escapeHTML(project.name)}" loading="lazy" data-lightbox-index="${i}" />`
     )
     .join("");
 
   const plansHTML = project.floorPlans
     .map(
       (src, i) =>
-        `<img src="${src}" alt="Planta baixa ${i + 1} do projeto ${escapeHTML(project.name)}" loading="lazy" />`
+        `<img src="${src}" alt="Planta baixa ${i + 1} do projeto ${escapeHTML(project.name)}" loading="lazy" data-lightbox-index="${project.gallery.length + i}" />`
     )
     .join("");
 
@@ -205,6 +210,8 @@ function openProjectModal(projectId) {
     ${plansSectionHTML}
   `;
 
+  body.dataset.lightboxImages = JSON.stringify(lightboxImages);
+
   lastFocusedElement = document.activeElement;
   modal.hidden = false;
   document.body.style.overflow = "hidden";
@@ -216,6 +223,64 @@ function closeProjectModal() {
   modal.hidden = true;
   document.body.style.overflow = "";
   if (lastFocusedElement) lastFocusedElement.focus();
+}
+
+/* --------------------------------------------------------------------
+   LIGHTBOX (visualização em tela cheia das fotos da galeria)
+-------------------------------------------------------------------- */
+let lightboxImages = [];
+let lightboxIndex = 0;
+let lightboxLastFocused = null;
+
+function initLightbox() {
+  const lightbox = document.getElementById("lightbox");
+  const modalBody = document.getElementById("modal-body");
+
+  modalBody.addEventListener("click", (e) => {
+    const img = e.target.closest("img[data-lightbox-index]");
+    if (!img) return;
+    const images = JSON.parse(modalBody.dataset.lightboxImages || "[]");
+    openLightbox(images, Number(img.dataset.lightboxIndex));
+  });
+
+  document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
+  document.getElementById("lightbox-backdrop").addEventListener("click", closeLightbox);
+  document.getElementById("lightbox-prev").addEventListener("click", () => showLightboxAt(lightboxIndex - 1));
+  document.getElementById("lightbox-next").addEventListener("click", () => showLightboxAt(lightboxIndex + 1));
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") showLightboxAt(lightboxIndex - 1);
+    if (e.key === "ArrowRight") showLightboxAt(lightboxIndex + 1);
+  });
+}
+
+function openLightbox(images, index) {
+  lightboxImages = images;
+  lightboxLastFocused = document.activeElement;
+  document.getElementById("lightbox").hidden = false;
+  showLightboxAt(index);
+}
+
+function showLightboxAt(index) {
+  const total = lightboxImages.length;
+  lightboxIndex = (index + total) % total;
+
+  const img = document.getElementById("lightbox-img");
+  img.src = lightboxImages[lightboxIndex];
+  img.alt = `Foto ${lightboxIndex + 1} de ${total}`;
+
+  document.getElementById("lightbox-counter").textContent = `${lightboxIndex + 1} / ${total}`;
+
+  const showNav = total > 1;
+  document.getElementById("lightbox-prev").hidden = !showNav;
+  document.getElementById("lightbox-next").hidden = !showNav;
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").hidden = true;
+  if (lightboxLastFocused) lightboxLastFocused.focus();
 }
 
 /* --------------------------------------------------------------------

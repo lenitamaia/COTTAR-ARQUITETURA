@@ -23,7 +23,7 @@ const SITE_DATA = {
     // assets/video/hero.mp4 - enquanto não existir, o navegador
     // mostra "poster" (a imagem abaixo) no lugar.
     video: "assets/video/hero.mp4",
-    poster: "https://picsum.photos/id/1073/1920/1080",
+    poster: "assets/img/portfolio/residencia-geminada-04-05/cover.jpg",
     videoLabel: "Vídeo institucional: fachada de edifício contemporâneo projetado pelo escritório Cottar Arquitetura",
     title: "COTTAR ARQUITETURA",
     slogan: "Projetos que unem forma, função e tempo.",

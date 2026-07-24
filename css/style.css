@@ -836,10 +836,11 @@ section { padding-block: var(--space-xl); }
   .nav__link { color: var(--color-bege-300); font-size: 1.1rem; }
   .nav__link::after { background-color: var(--color-bege-300); }
 
-  /* "Sobre" e "Portfólio" mantêm o mesmo formato lado a lado do
-     desktop também no celular, apenas reduzidos. */
-  .about__grid { gap: var(--space-sm); }
-  .about__philosophy { padding-left: var(--space-sm); }
+  /* "Portfólio" mantém o mesmo formato lado a lado do desktop também
+     no celular, apenas reduzido. "Sobre" empilha (foto em cima, texto
+     embaixo) por ficar mais legível. */
+  .about__grid { grid-template-columns: 1fr; }
+  .about__media { max-width: 380px; margin-inline: auto; }
 
   .portfolio__grid { gap: var(--space-sm); }
   .project-card__name { font-size: 1rem; }

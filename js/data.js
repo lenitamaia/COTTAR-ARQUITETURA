@@ -73,7 +73,7 @@ const SITE_DATA = {
   projects: [
     {
       id: "residencia-geminada-04-05",
-      name: "Residência Geminada Cassius - Casas 04 e 05",
+      name: "Residência Geminada - Casas 04 e 05",
       category: "residencial",
       categoryLabel: "Residencial",
       location: "Itapebussu, Guarapari - ES",
@@ -108,7 +108,7 @@ const SITE_DATA = {
     },
     {
       id: "residencia-geminada-02-03",
-      name: "Residência Geminada Cassius - Casas 02 e 03",
+      name: "Residência Geminada - Casas 02 e 03",
       category: "residencial",
       categoryLabel: "Residencial",
       location: "Rua Vereador Jorge Simões, Itapebussu, Guarapari - ES",
@@ -176,7 +176,7 @@ const SITE_DATA = {
     },
     {
       id: "apartamento-domingos",
-      name: "Apartamento Domingos e Catarina",
+      name: "Apartamento Brisa do Mar",
       category: "residencial",
       categoryLabel: "Residencial",
       location: "R. Sizenaldo Matos Bourguignon, Morro Atalaia, Guarapari - ES",
@@ -243,7 +243,7 @@ const SITE_DATA = {
     },
     {
       id: "apartamento-elci",
-      name: "Apartamento ELCI",
+      name: "Apartamento Lumière Blanche",
       category: "interiores",
       categoryLabel: "Interiores",
       location: "Guarapari - ES",
